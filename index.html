@@ -7525,12 +7525,12 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span> <span class="c1"># вывод таблиц</span>
+<div class="highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># вывод, заполнение таблиц</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">PI</span> <span class="c1"># число пи</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># для графика</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># для диаграммы</span>
 </pre></div>
 </div>
 </div>
@@ -7550,33 +7550,50 @@ Nk - число членов, входящих в частичную сумму 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=196be363cd272214">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=196be363cd272214">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython2"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">([</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"Sk"</span><span class="p">,</span> <span class="s2">"Nk"</span><span class="p">,</span> <span class="s2">"~S"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<div class="highlight hl-ipython2"><pre><span></span><span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Sk"</span><span class="p">,</span> <span class="s2">"Nk"</span><span class="p">,</span> <span class="s2">"~S"</span><span class="p">]</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+<span class="n">table</span><span class="p">[</span><span class="s1">'Nk'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+<span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>+---+----+----+----+
-| k | Sk | Nk | ~S |
-+---+----+----+----+
-+---+----+----+----+
-</pre>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=862b147d3488b7ba">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Вспомогательная функция для добавления записи в таблицу</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=208ba3d4ed05d347">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">appendEntry</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Добавляет запись с результатами вычислений в таблицу</span>
+<span class="sd">    :param data: данные</span>
+<span class="sd">    :return: </span>
+<span class="sd">    """</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span> <span class="o">=</span> <span class="p">({</span><span class="n">column_name</span><span class="p">:</span> <span class="n">column_value</span> <span class="k">for</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">column_value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">column_names</span><span class="p">,</span> <span class="n">entry</span><span class="p">)})</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -7772,7 +7789,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">S</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -7804,7 +7821,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">aS0</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -7833,7 +7850,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="n">N0</span> <span class="o">=</span> <span class="mi">100001</span>
@@ -7858,7 +7875,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="n">S0</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">aS0</span><span class="p">,</span> <span class="n">N0</span><span class="p">)</span>
@@ -7883,11 +7900,11 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython2"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">N0</span><span class="p">,</span> <span class="n">S0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<div class="highlight hl-ipython2"><pre><span></span><span class="n">appendEntry</span><span class="p">([</span><span class="n">S0</span><span class="p">,</span> <span class="n">N0</span><span class="p">,</span> <span class="n">S0</span><span class="p">])</span>
+<span class="n">table</span>
 </pre></div>
 </div>
 </div>
@@ -7897,15 +7914,42 @@ $$
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>+---+-------------------+--------+-------------------+
-| k |         Sk        |   Nk   |         ~S        |
-+---+-------------------+--------+-------------------+
-| 0 | 2.084463025829596 | 100001 | 2.084463025829596 |
-+---+-------------------+--------+-------------------+
-</pre>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Sk</th>
+<th>Nk</th>
+<th>~S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2.084463</td>
+<td>100001</td>
+<td>2.084463</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -8130,7 +8174,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">aS1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -8159,7 +8203,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="n">N1</span> <span class="o">=</span> <span class="mi">388</span>
@@ -8184,7 +8228,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="n">S1</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">aS1</span><span class="p">,</span> <span class="n">N1</span><span class="p">)</span>
@@ -8209,11 +8253,11 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython2"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">S1</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span> <span class="n">S1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">PI</span><span class="o">*</span><span class="n">PI</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<div class="highlight hl-ipython2"><pre><span></span><span class="n">appendEntry</span><span class="p">([</span><span class="n">S1</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span> <span class="n">S1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">PI</span><span class="o">*</span><span class="n">PI</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">table</span>
 </pre></div>
 </div>
 </div>
@@ -8223,16 +8267,48 @@ $$
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>+---+--------------------+--------+-------------------+
-| k |         Sk         |   Nk   |         ~S        |
-+---+--------------------+--------+-------------------+
-| 0 | 2.084463025829596  | 100001 | 2.084463025829596 |
-| 1 | 0.8790679909975144 |  388   | 2.084468062346984 |
-+---+--------------------+--------+-------------------+
-</pre>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Sk</th>
+<th>Nk</th>
+<th>~S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2.084463</td>
+<td>100001</td>
+<td>2.084463</td>
+</tr>
+<tr>
+<th>1</th>
+<td>0.879068</td>
+<td>388</td>
+<td>2.084468</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -8470,7 +8546,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">aS2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -8499,7 +8575,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="n">N2</span> <span class="o">=</span> <span class="mi">20</span>
@@ -8524,7 +8600,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">aS2</span><span class="p">,</span> <span class="n">N2</span><span class="p">)</span>
@@ -8551,11 +8627,11 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython2"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">N2</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">S2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">1.2020569032</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">PI</span><span class="o">*</span><span class="n">PI</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<div class="highlight hl-ipython2"><pre><span></span><span class="n">appendEntry</span><span class="p">([</span><span class="n">S2</span><span class="p">,</span> <span class="n">N2</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">S2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">1.2020569032</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">PI</span><span class="o">*</span><span class="n">PI</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">table</span>
 </pre></div>
 </div>
 </div>
@@ -8565,17 +8641,54 @@ $$
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>+---+--------------------+--------+--------------------+
-| k |         Sk         |   Nk   |         ~S         |
-+---+--------------------+--------+--------------------+
-| 0 | 2.084463025829596  | 100001 | 2.084463025829596  |
-| 1 | 0.8790679909975144 |  388   | 2.084468062346984  |
-| 2 | 2.727011378676615  |   20   | 2.0845137323099188 |
-+---+--------------------+--------+--------------------+
-</pre>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Sk</th>
+<th>Nk</th>
+<th>~S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2.084463</td>
+<td>100001</td>
+<td>2.084463</td>
+</tr>
+<tr>
+<th>1</th>
+<td>0.879068</td>
+<td>388</td>
+<td>2.084468</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2.727011</td>
+<td>20</td>
+<td>2.084514</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -8598,7 +8711,7 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Метод Куммера работает! Работает в том смысле, что ускоряет сходимость исследуемого рядя. Однако при рекурсивном повторении метода прирост ускорения уже не так ярко выражен.</p>
+<p>Метод Куммера работает! Работает в том смысле, что ускоряет сходимость исследуемого ряда. Однако при рекурсивном повторении метода прирост ускорения уже не так ярко выражен.</p>
 <blockquote>
 <p>Ниже диаграмма для иллюстрации.</p>
 </blockquote>
@@ -8610,7 +8723,7 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython2"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">N0</span><span class="o">/</span><span class="n">N1</span><span class="p">,</span> <span class="n">N1</span><span class="o">/</span><span class="n">N2</span><span class="p">]</span>
